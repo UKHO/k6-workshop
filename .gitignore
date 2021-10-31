@@ -1,0 +1,10 @@
+node_modules
+yarn-error.log
+dist
+.vs/
+bin/
+obj/
+*.user
+deployment/.terraform
+*.secrets.json
+*.csv
