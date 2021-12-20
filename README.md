@@ -10,9 +10,11 @@ These are written using [K6](https://k6.io)
 
 # Exercise 1 - verify your environment
 From the root of this project, run the following on the command line:
-'''
+
+```
 > k6 run ./src/loadTest.js
-'''
+```
+
 Observe the results.  You should see info messages for 10 or so successful calls to the web service:
 ```
 INFO[0001] 200                                           source=console
@@ -37,9 +39,12 @@ Observe the results in the standard output
 
 # Exercise 3 - visualising output
 Tag your output by adding the following property to your options object:
+
+```
 	tags: {
 		tester: 'YourNameHere',
     },
+```
 
 Go to the Grafana instance.  Make your own copy of the "k6 Dashboard Base" dashboard (open the dashboard, click on the cog, do a "save as").
 
@@ -47,7 +52,38 @@ Add a filter on some of the panels so it only shows your data (add WHERE tester 
 
 Run your load test again, passing in the details of the InfluxDB:
 
-k6 run -e K6_INFLUXDB_USERNAME='k6' -e K6_INFLUXDB_PASSWORD='[INFLUX PASSWORD' --out influxdb=http://[INFLUX IP]:8086/k6 ./src/loadTest.js
+k6 run -e K6_INFLUXDB_USERNAME='k6' -e K6_INFLUXDB_PASSWORD='[INFLUX PASSWORD]' --out influxdb=http://[INFLUX IP]:8086/k6 ./src/loadTest.js
+
+
+# Exercise 4 - Using Scenerios to build up a load profile
+
+Use [K6 scenarios](https://k6.io/docs/using-k6/scenarios/) to load test the bowl API.  
+
+Warm it up by ramping it up for 2 minutes, starting with 5 calls per minute and ending at 120 calls per minute
+
+After 2 minutes, carry on at the rate of 120 calls per minute for 30 seconds.
+
+
+# Exercise 5 - More scenarios
+
+One type of user likes to bowl, wait one second, then play a shot, then wait 2 seconds before bowling again.  There are 2 of these types of user.  They carry on for 2 mins.
+
+Another type of user only bowls, which it does 10 times every minute.  There is one of these, and they carry on for 2 mins.
+
+Use [K6 scenarios](https://k6.io/docs/using-k6/scenarios/) to build this load profile
+
+Hint: create two scenarios.  A scenario can be configured to execute a specific using an __exec__ property whose value is the function name (exec: 'myFunctionName',)
+
+# Exercise 6 - startup tasks
+
+At the start of the game, you can find out the name of the match umpire by calling the /matchDetails service.  You should pass this into every subsequent call to the /shot service.
+
+Use the built-in [setup()](https://k6.io/docs/using-k6/test-life-cycle/#setup-and-teardown-stages) function to do this.
+
+
+# Exercise 7 - thresholds
+Building on exercise 6, stop load testing as soon as you've had 3 errors from the /bowl service     
+Use a [threshold](https://k6.io/docs/using-k6/thresholds/) and a counter to do this.
 
 # Resources
 - [k6](https://k6.io/docs/getting-started/)
