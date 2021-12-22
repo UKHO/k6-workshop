@@ -1,12 +1,19 @@
 # ACG Connect Load Tests
 
-This repository contains the code for the UKHO K6 workshop
+This repository contains the instructions for the UKHO K6 workshop, together with some example code for each exercise.
+
+The workshop is designed for a K6 novice to get started writing some load tests.  It assumes the a running mock (cricket web API)[https://github.com/nevillejrbrown/CricketApp].
 
 These are written using [K6](https://k6.io)
 
 # Pre-requisites
-- k6 installed
+- k6 [installed](https://k6.io/docs/getting-started/installation/)
 - IDE (VS Code recommended)
+
+You will need the following information to run the load tests:
+- The host name of the system you are going to load (SUT_HOSTNAME)
+- The IP address of the InfluxDB (INFLUX IP)
+- The password for the InfluxDB (INFLUX PASSWORD)
 
 # Exercise 1 - verify your environment
 From the root of this project, run the following on the command line:
@@ -28,7 +35,7 @@ followed by some summary stats:
 ```
 
 # Exercise 2 - checks
-Modify the code in loadTest.js to the call the Bowl webservice detailed here: http://acr-cricket-njrbloadreg.ukwest.azurecontainer.io/swagger
+Modify the code in loadTest.js to the call the *Bowl* service detailed here: http://{SUT_HOSTNAME}/swagger
 
 Call it 10 times, with 2 virtual users (VUs), with each VU pausing 1 second between each call.
 
@@ -52,12 +59,13 @@ Add a filter on some of the panels so it only shows your data (add WHERE tester 
 
 Run your load test again, passing in the details of the InfluxDB:
 
-k6 run -e K6_INFLUXDB_USERNAME='k6' -e K6_INFLUXDB_PASSWORD='[INFLUX PASSWORD]' --out influxdb=http://[INFLUX IP]:8086/k6 ./src/loadTest.js
-
+```
+k6 run -e K6_INFLUXDB_USERNAME='k6' -e K6_INFLUXDB_PASSWORD='{INFLUX PASSWORD}' --out influxdb=http://{INFLUX IP}:8086/k6 ./src/loadTest.js
+```
 
 # Exercise 4 - Using Scenerios to build up a load profile
 
-Use [K6 scenarios](https://k6.io/docs/using-k6/scenarios/) to load test the bowl API.  
+Use [K6 scenarios](https://k6.io/docs/using-k6/scenarios/) to load test the *Bowl* service.  
 
 Warm it up by ramping it up for 2 minutes, starting with 5 calls per minute and ending at 120 calls per minute
 
@@ -84,6 +92,10 @@ Use the built-in [setup()](https://k6.io/docs/using-k6/test-life-cycle/#setup-an
 
 
 # Exercise 7 - thresholds
-Building on exercise 2, stop load testing as soon as you've had 3 errors from the /bowl service     
+Building on exercise 2, stop load testing as soon as you've had 3 errors from the *Bowl* service     
+
 Use a [threshold](https://k6.io/docs/using-k6/thresholds/) and a [counter](https://k6.io/docs/javascript-api/k6-metrics/counter#examples) to do this.
 
+# Exercise 8 - soak testing
+
+Can you spot the resource leak by doing some soak testing?
