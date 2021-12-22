@@ -72,11 +72,13 @@ Another type of user only bowls, which it does 10 times every minute.  There is 
 
 Use [K6 scenarios](https://k6.io/docs/using-k6/scenarios/) to build this load profile
 
-Hint: create two scenarios.  A scenario can be configured to execute a specific using an __exec__ property whose value is the function name (exec: 'myFunctionName',)
+Hint: create two scenarios.  A scenario can be configured to execute a specific function using an *exec* property whose value is the function name (exec: 'myFunctionName',)
 
 # Exercise 6 - startup tasks
 
-At the start of the game, you can find out the name of the match umpire by calling the /matchDetails service.  You should pass this into every subsequent call to the /shot service.
+Write a load test that makes use of the setup stage.
+
+At the start of the game, you can find out the name of the match umpire by calling the /matchDetails service.  You should pass this into every subsequent call to the /shot service.  
 
 Use the built-in [setup()](https://k6.io/docs/using-k6/test-life-cycle/#setup-and-teardown-stages) function to do this.
 
