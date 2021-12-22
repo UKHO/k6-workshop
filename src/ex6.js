@@ -28,7 +28,7 @@ export function setup() {
 export function batter(umpire) {
 	// umpire returned from the setup function will be passed into this function each time
 	const response = http.get(`http://acr-cricket-njrbloadreg.ukwest.azurecontainer.io/Shot?umpire=${umpire}`);
-	console.log(response.body);
+	console.log(response.json("message"));
 }
 
 
