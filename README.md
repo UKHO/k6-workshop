@@ -84,8 +84,6 @@ Use the built-in [setup()](https://k6.io/docs/using-k6/test-life-cycle/#setup-an
 
 
 # Exercise 7 - thresholds
-Building on exercise 6, stop load testing as soon as you've had 3 errors from the /bowl service     
-Use a [threshold](https://k6.io/docs/using-k6/thresholds/) and a counter to do this.
+Building on exercise 2, stop load testing as soon as you've had 3 errors from the /bowl service     
+Use a [threshold](https://k6.io/docs/using-k6/thresholds/) and a [counter](https://k6.io/docs/javascript-api/k6-metrics/counter#examples) to do this.
 
-# Resources
-- [k6](https://k6.io/docs/getting-started/)
