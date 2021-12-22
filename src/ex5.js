@@ -1,12 +1,11 @@
 import http from "k6/http";
 import {sleep} from "k6";
-import {check} from 'k6';
 
 export const options = {
 	scenarios: {
 		bowlAndBat: {
 			executor: 'constant-vus',
-			exec: 'bowlerAndBatter',
+			exec: 'bowlerAndBatter',   // this property points to the method of the same name
 			vus: 2,
 			duration: '2m',
 		  },
