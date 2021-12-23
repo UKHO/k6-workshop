@@ -10,7 +10,7 @@ These are written using [K6](https://k6.io)
 - k6 [installed](https://k6.io/docs/getting-started/installation/)
 - IDE (VS Code recommended)
 
-You will need the following information to run the load tests:
+You will need the following information to run exercises 2 onwards:
 - The host name of the system you are going to load (SUT_HOSTNAME)
 - The IP address of the InfluxDB (INFLUX IP)
 - The password for the InfluxDB (INFLUX PASSWORD)
