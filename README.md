@@ -19,7 +19,7 @@ You will need the following information to run the load tests:
 From the root of this project, run the following on the command line:
 
 ```
-> k6 run ./src/loadTest.js
+> k6 run ./src/ex1.js
 ```
 
 Observe the results.  You should see info messages for 10 or so successful calls to the web service:
