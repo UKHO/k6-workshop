@@ -1,4 +1,4 @@
-# ACG Connect Load Tests
+# K6 Workshop
 
 This repository contains the instructions for the UKHO K6 workshop, together with some example code for each exercise.
 
