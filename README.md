@@ -35,7 +35,7 @@ followed by some summary stats:
 ```
 
 # Exercise 2 - checks
-Modify the code in loadTest.js to the call the *Bowl* service detailed here: http://{SUT_HOSTNAME}/swagger
+Modify the code in ex1.js to the call the *Bowl* service detailed here: http://{SUT_HOSTNAME}/swagger
 
 Call it 10 times, with 2 virtual users (VUs), with each VU pausing 1 second between each call.
 
