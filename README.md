@@ -51,7 +51,7 @@ Observe the results in the standard output
 
 ## Exercise 3 - visualising output
 
-Tag your output by adding the following property to your options object:
+Tag your output by adding the following property to your options object, with a unique name:
 
 ```JSON
 tags: {
@@ -59,9 +59,9 @@ tags: {
 },
 ```
 
-Go to the Grafana instance.  Make your own copy of the "k6 Dashboard Base" dashboard (open the dashboard, click on the cog, do a "save as").
+Go to the Grafana instance.  This is looking at everyone's shared data, so you need to make it specific to your K6 output.  Make your own copy of the "k6 Dashboard Base" dashboard (open the dashboard, click on the cog, do a "save as").
 
-Add a filter on some of the panels so it only shows your data (add `WHERE tester = YourNameHere`)
+Add a filter on some of the panels so it only shows your data (change `WHERE tester = YourNameHere` to match your unique name)
 
 Run your load test again, passing in the details of the InfluxDB:
 
