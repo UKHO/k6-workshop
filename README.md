@@ -2,7 +2,7 @@
 
 This repository contains the instructions for the UKHO K6 workshop, together with some example code for each exercise.
 
-The workshop is designed for a K6 novice to get started writing some load tests.  It assumes the a running mock [cricket web API](https://github.com/nevillejrbrown/CricketApp).
+The workshop is designed for a K6 novice to get started writing some load tests.  It assumes that there is a running mock [cricket web API](https://github.com/nevillejrbrown/CricketApp).
 
 These are written using [K6](https://k6.io)
 
