@@ -43,7 +43,7 @@ etc
 
 Modify the code in ex1.js to the call the *Bowl* service detailed here: `http://{SUT_HOSTNAME}/swagger`
 
-Call it 10 times, with 2 virtual users (VUs), with each VU pausing 1 second between each call.
+Call it 10 times, with 2 virtual users (VUs), with each VU pausing 1 second between each call.  Do this by simply adding sleep(1); at the right place in your code!
 
 Verify that the API call returns a 200 response, using a [check](https://k6.io/docs/using-k6/checks/)
 
