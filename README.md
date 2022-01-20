@@ -73,14 +73,12 @@ tags: {
 },
 ```
 
-Go to the Grafana instance.  This is looking at everyone's shared data, so you need to make it specific to your K6 output.  Make your own copy of the "k6 Dashboard Base" dashboard (open the dashboard, click on the cog, do a "save as").
-
-Add a filter on some of the panels so it only shows your data (change `WHERE tester = YourNameHere` to match your unique name)
+Go to the Grafana instance.  In the dropdown marked TesterName, replace YourNameHere with the value of the tester property you've put in your code.
 
 Run your load test again, passing in the details of the InfluxDB:
 
 ```bash
-k6 run -e K6_INFLUXDB_USERNAME='k6' -e K6_INFLUXDB_PASSWORD='{INFLUX PASSWORD}' --out influxdb=http://{INFLUX IP}:8086/k6 ./src/loadtest.js
+k6 run -e K6_INFLUXDB_USERNAME='k6' -e K6_INFLUXDB_PASSWORD='{INFLUX PASSWORD}' --out influxdb=http://{INFLUX IP}:8086/k6 ./src/ex4.js
 ```
 
 ## Exercise 4 - Using Scenerios to build up a load profile
