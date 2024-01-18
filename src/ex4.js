@@ -23,10 +23,7 @@ export const options = {
 			preAllocatedVUs: 1,
 			maxVUs: 5,
 		  }
-	},
-	tags: {
-		tester: 'YourNameHere',
-    },	
+	}
   };
 
 export default function () {

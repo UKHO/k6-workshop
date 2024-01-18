@@ -4,10 +4,7 @@ import {check} from 'k6';
 
 export const options = {
 	vus: 2,
-	duration: '10s',
-	tags: {
-	  tester: 'YourNameHere',
-    	},	
+	duration: '10s'
   };
 
 export default function () {
