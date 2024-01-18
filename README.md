@@ -9,16 +9,16 @@ These are written using [K6](https://k6.io)
 ## Pre-requisites
 
 - k6 [installed](https://k6.io/docs/getting-started/installation/)
+- Grafana Cloud [account](https://grafana.com/auth/sign-up/create-user?pg=prod-cloud&plcmt=hero-btn-1) created
 - IDE (VS Code recommended)
 - clone this repo onto your local dev environment
 
 You will need the following information to run exercises 2 onwards:
 
-- The host name of the system you are going to load (`SUT_HOSTNAME`)
-- The IP address of the InfluxDB (`INFLUX IP`)
-- The password for the InfluxDB (`INFLUX PASSWORD`)
+- The host name of the system you are going to load (`SUT_HOSTNAME`) which will be given to you at the start of he workshop
+- Your personal API token which can be found in your Grafana Cloud account settings (`API_TOKEN`)
 
-You will see these labels referenced below in {  }.  Substitute in the correct values you will be given for these.
+You will see these labels referenced below in {  }. Substitute in the correct values.
 
 
 ## How to do the workshop
@@ -32,7 +32,7 @@ Most of exercises involve calling a "Cricket API".  At the start of the workshop
 From the root of this project, run the following on the command line:
 
 ```bash
-> k6 run ./src/loadtest.js
+k6 run ./src/loadtest.js
 ```
 
 Observe the results.  You should see info messages for 10 or so successful calls to the web service:
@@ -63,27 +63,25 @@ Observe the results in the standard output
 
 ## Exercise 3 - visualising output
 
-This exercise changes redirects the output of your tests so they can be viewed in Grafana. 
+This exercise redirects the output of your tests so they can be viewed in Grafana Cloud.
 
-So that your output can be distinguished from everyone else's, tag your output by adding the following property to your options object, with a unique name:
-
-```JSON
-tags: {
-     tester: 'YourNameHere',
-},
-```
-
-Go to the Grafana instance.  In the dropdown marked TesterName, replace YourNameHere with the value of the tester property you've put in your code.
-
-Run your load test again, passing in the details of the InfluxDB:
+From the root of this project, run the following on the command line to set up your API token on your local machine to authenticate against the cloud service:
 
 ```bash
-k6 run -e K6_INFLUXDB_USERNAME='k6' -e K6_INFLUXDB_PASSWORD='{INFLUX PASSWORD}' --out influxdb=http://{INFLUX IP}:8086/k6 ./src/ex3.js
+k6 login cloud --token {API_TOKEN}
 ```
 
-## Exercise 4 - Using Scenerios to build up a load profile
+Run your load test again, using the `--out` option to send the k6 results to the cloud:
 
-This exercises introduces scenarios, which are the easiest way to define patterns of load.
+```bash
+k6 run --out cloud ./src/loadtest.js
+```
+
+Click on the link shown in your terminal to view the results in your browser.
+
+## Exercise 4 - Using Scenarios to build up a load profile
+
+This exercise introduces scenarios, which are the easiest way to define patterns of load.
 
 Use [K6 scenarios](https://k6.io/docs/using-k6/scenarios/) to load test the *Bowl* service.  
 
