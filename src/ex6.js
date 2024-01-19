@@ -10,10 +10,7 @@ export const options = {
 			vus: 1,
 			duration: '30s',
 		  },
-	},
-	tags: {
-		tester: 'YourNameHere',
-    },	
+	}
   };
 
 export function setup() {

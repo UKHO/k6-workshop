@@ -18,10 +18,7 @@ export const options = {
 			preAllocatedVUs: 1,
 			maxVUs: 2,
 		  }
-	},
-	tags: {
-		tester: 'YourNameHere',
-    },	
+	}
   };
 
 export function bowlerAndBatter() {
