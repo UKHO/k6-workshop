@@ -22,13 +22,13 @@ export const options = {
   };
 
 export function bowlerAndBatter() {
-	http.get('http://acr-cricket-njrbloadreg.ukwest.azurecontainer.io/Bowl');
+	http.get('https://{SUT_HOSTNAME}/Bowl');
 	sleep(1);
-	http.get('http://acr-cricket-njrbloadreg.ukwest.azurecontainer.io/Shot');
+	http.get('https://{SUT_HOSTNAME}/Shot');
 	sleep(2);
 }
 
 export function bowlerOnly() {
-	http.get('http://acr-cricket-njrbloadreg.ukwest.azurecontainer.io/Bowl');
+	http.get('https://{SUT_HOSTNAME}/Bowl');
 }
 

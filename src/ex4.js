@@ -27,7 +27,7 @@ export const options = {
   };
 
 export default function () {
-	const res = http.get('http://acr-cricket-njrbloadreg.ukwest.azurecontainer.io/Bowl');
+	const res = http.get('https://{SUT_HOSTNAME}/Bowl');
 }
 
 
