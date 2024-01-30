@@ -15,7 +15,7 @@ export const options = {
 
 export function setup() {
 	// calls the matchDetails API and returns the "umpire" property of the returned JSON
-	const matchDetailsResult = http.get('http://acr-cricket-njrbloadreg.ukwest.azurecontainer.io/matchDetails');
+	const matchDetailsResult = http.get('https://{SUT_HOSTNAME}/matchDetails');
 	const umpire = matchDetailsResult.json("umpire");
 	console.log(`**** Umpire for this match is: ${umpire} ****`);
 	return umpire;
@@ -24,7 +24,7 @@ export function setup() {
 
 export function batter(umpire) {
 	// umpire returned from the setup function will be passed into this function each time
-	const response = http.get(`http://acr-cricket-njrbloadreg.ukwest.azurecontainer.io/Shot?umpire=${umpire}`);
+	const response = http.get(`https://{SUT_HOSTNAME}/Shot?umpire=${umpire}`);
 	console.log(response.json("message"));
 }
 
