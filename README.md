@@ -10,10 +10,11 @@ This repository contains the instructions for the UKHO K6 workshop, some example
 - Grafana Cloud [account](https://grafana.com/auth/sign-up/create-user?pg=prod-cloud&plcmt=hero-btn-1) created
 - IDE (VS Code recommended)
 - This repo cloned onto your local dev environment
+- A running instance of the 'Cricket API'.  This will either be provided by the person running the workshop, or you can run this locally (open /sut/CricketAPI.sln in Visual Studio and run; it requires .Net 8).
 
 You will need the following information to run exercise 2 onwards:
 
-- The host name of the system you are going to load (`SUT_HOSTNAME`) which will be given to you at the start of he workshop
+- The host name of the system you are going to load (`SUT_HOSTNAME`) which will be given to you at the start of the workshop
 - Your personal API token which can be found in your Grafana Cloud account settings (`API_TOKEN`)
 
 You will see these labels referenced in the exercises in {  }. Substitute in the correct values.
