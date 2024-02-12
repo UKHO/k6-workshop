@@ -1,0 +1,8 @@
+dist
+.vs/
+bin/
+obj/
+*.user
+deployment/.terraform
+*.secrets.json
+*.csv
